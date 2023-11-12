@@ -1,0 +1,39 @@
+model ( str ) – 型号名称。除非您知道自己在做什么，否则不要改变。
+model_args ( XttsArgs ) – 模型架构参数。默认为XttsArgs()。
+音频( XttsAudioConfig ) – 音频处理配置。默认为XttsAudioConfig()。
+model_dir ( str ) – 包含所有 XTTS 模型的文件夹的路径。默认为无。
+温度( float ) – 自回归模型推理的温度。较大的值会使预测更具创造性，但会牺牲稳定性。默认为0.2。
+length_penalty ( float ) – 对基于梁的生成所使用的长度的指数惩罚。它用作序列长度的指数，而序列长度又用于除以序列的分数。由于分数是序列的对数似然（即负），因此 length_penalty > 0.0 会促进较长的序列，而 length_penalty < 0.0 则会鼓励较短的序列。
+repetition_penalty ( float ) – 重复惩罚的参数。1.0 表示没有处罚。默认为2.0。
+top_p ( float ) – 如果设置为 float < 1，则仅保留概率总计为 top_p 或更高的最可能标记的最小集合进行生成。默认为0.8。
+num_gpt_outputs ( int ) – 从自回归模型中获取的样本数，所有样本均使用 CLVP 进行过滤。由于 XTTS 是一个概率模型，
+更多样本意味着创造“伟大”事物的可能性更高。默认为16。
+
+gpt_cond_len ( int ) – 用作自回归模型条件的音频秒数。默认为3。
+max_ref_len ( int ) – 用于解码器调节的音频最大秒数。默认为10。
+sound_norm_refs ( bool ) – 是否标准化调节音频。默认为False。
+
+
+
+gpt_batch_size ( int ) – 自回归批次的大小。
+enable_redaction ( bool ,可选) – 是否启用密文。默认为 True。
+kv_cache ( bool ,可选) – 是否使用 kv_cache。默认为 True。
+gpt_checkpoint ( str ,可选) – 自回归模型的检查点。默认为无。
+clvp_checkpoint ( str ,可选) – ConditionalLatentVariablePerseq 模型的检查点。默认为无。
+Decoder_checkpoint ( str ,可选) – DiffTTS 模型的检查点。默认为无。
+num_chars ( int ,可选) – 要生成的最大字符数。默认为 255。
+型号（适用于 GPT）–
+
+gpt_max_audio_tokens ( int ,可选) – 自回归模型的最大 mel 标记。默认为 604。
+gpt_max_text_tokens ( int ,可选) – 自回归模型的最大文本标记。默认为 402。
+gpt_max_prompt_tokens ( int ,可选) – 最大提示标记或自回归模型。默认为 70。
+gpt_layers ( int ,可选) – 自回归模型的层数。默认为 30。
+gpt_n_model_channels ( int ,可选) – 自回归模型的模型维度。默认为 1024。
+gpt_n_heads ( int ,可选) – 自回归模型的头数。默认为 16。
+gpt_number_text_tokens ( int ,可选) – 自回归模型的文本标记数量。默认为 255。
+gpt_start_text_token ( int ,可选) – 自回归模型的起始文本标记。默认为 255。
+gpt_checkpointing ( bool ,可选) – 是否对自回归模型使用检查点。默认为 False。
+gpt_train_solo_embeddings ( bool ,可选) – 是否训练自回归模型的嵌入。默认为 False。
+gpt_code_stride_len ( int ,可选) – dvae 的 hop_size 以及 gpt 输出的 hop_size。默认为 1024。
+gpt_use_masking_gt_prompt_approach ( bool ,可选) – 如果为 True，它将使用真实值作为提示，并掩盖损失以避免重复。默认为 True。
+gpt_use_perceiver_resampler ( bool ,可选) – 如果为 True，它将使用火烈鸟论文中的感知器重采样器 - https://arxiv.org/abs/2204.14198。默认为 False。
