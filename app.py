@@ -22,6 +22,7 @@ with gr.Blocks(css=css) as demo:
         with gr.Column():
             input_text = gr.Textbox(label="输入文本", lines=4, placeholder="在此输入文字。")
             language = gr.Dropdown(language_list, label="语言", value=language_list[0])
+
         with gr.Row():
             audio_filename = gr.Audio(label="Input audio.wav", type='filepath')
             output_audio = gr.Audio(label="生成的音频", type="filepath")
@@ -46,7 +47,7 @@ with gr.Blocks(css=css) as demo:
             language_api = gr.Dropdown(language_list, label="语言", value=language_list[0], )
         with gr.Row():
             emotion = gr.Radio(emotion_list, label="emotion", value=emotion_list[0], info="模型的情感")
-            speed = gr.Slider(0.0, 2.0, value=0, step=0.2, label="speed", info="速度系数")
+            speed = gr.Slider(0.0, 2.0, value=0, step=0.1, label="speed", info="速度系数")
 
         with gr.Row():
             audio_filename_api = gr.Audio(label="Input audio.wav", type='filepath')

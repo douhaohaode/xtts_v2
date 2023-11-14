@@ -9,6 +9,9 @@
  ![1.png](source/asset/1.png)
  
 
+## 本地模型下载
+ [huggingface 地址](https://huggingface.co/coqui/XTTS-v2/tree/main)
+
 ## 代码源自:
 
 [地址:coqui-ai/TTS](https://github.com/coqui-ai/TTS)
