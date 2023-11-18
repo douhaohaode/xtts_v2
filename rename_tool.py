@@ -3,6 +3,7 @@ import time
 
 
 def path(path_name, t):
+    directory, file_name = "", ""
     directory = os.path.dirname(os.path.abspath(__file__))
     timestamp = int(time.time())
     file_path = f"./output/{path_name}/{timestamp}.{t}"
