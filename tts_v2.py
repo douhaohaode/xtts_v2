@@ -3,11 +3,16 @@ import torch
 import torchaudio
 from TTS.tts.configs.xtts_config import XttsConfig
 from TTS.tts.models.xtts import Xtts
+import os
+
+current_dir = os.getcwd()
+config_path = os.path.join(current_dir, "source", "model_v2", "config.json")
+checkpoint_dir = os.path.join(current_dir, "source", "model_V2")
 
 config = XttsConfig()
-config.load_json("./source/model_v2/config.json")
+config.load_json(config_path)
 model = Xtts.init_from_config(config)
-model.load_checkpoint(config, checkpoint_dir="./source/model_V2/", eval=True)
+model.load_checkpoint(config, checkpoint_dir=checkpoint_dir, eval=True)
 model.cuda()
 
 
